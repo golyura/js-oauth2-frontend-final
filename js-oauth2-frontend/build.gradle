@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'ru.javabegin.oauth2.js.demo'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // веб часть нужно будет только для перенаправления запросов на нужные страницы
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // В нашем примере - используем только для нахождения страниц HTML из папки templates
+    // Весь функционал у нас реализован на JS
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    // нет подключения к БД и других библиотек
+}
